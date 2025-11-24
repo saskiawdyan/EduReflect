@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil Saya | EduReflect</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Link ke CSS Global & Spesifik -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+  
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <img src="assets/logo.png" alt="EduReflect" class="logo" />
+      <h1>EduReflect</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="reflection.html">Refleksi</a></li>
+      <li><a href="report.html">Laporan</a></li>
+      <li><a href="analytics.html">Analitik</a></li> 
+      <li><a href="profile.html" class="active">Profil</a></li>
+      <li><a href="game.html">Game</a></li>
+      <li><a href="#" id="logoutLink">Logout</a></li>
+    </ul>
+    <div class="nav-controls">
+      <button id="theme-toggle" class="btn-icon" title="Ganti tema">🌙</button>
+      
+      <button id="nav-toggle-btn" class="btn-icon nav-toggle-btn" title="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    
+  </nav>
+
+  <!-- Main Section -->
+  <main class="container">
+    <section class="profile-box">
+      <h2>Profil Pengguna</h2>
+      <p class="muted">Kelola informasi akun dan gaya belajarmu.</p>
+
+      <form id="profileForm">
+        <div class="profile-grid">
+          
+          <div class="profile-avatar">
+            <label for="avatarInput" title="Klik untuk ganti foto">
+              <img
+                id="avatarPreview"
+                src="assets/default-avatar.png"
+                alt="avatar"
+              />
+            </label>
+            <input type="file" id="avatarInput" accept="image/png, image/jpeg, image/webp" />
+            <small class="muted">
+              Max 2MB (JPG, PNG, WEBP)
+            </small>
+          </div>
+
+          <div class="profile-info">
+            <div class="form-group">
+              <label for="name">Nama Lengkap</label>
+              <input type="text" id="name" name="name" placeholder="Memuat..." />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" disabled placeholder="Memuat..." />
+            </div>
+            <div class="form-group">
+              <label for="bio">Tentang Saya</label>
+              <textarea
+                id="bio"
+                name="bio"
+                rows="3"
+                placeholder="Ceritakan sedikit tentang dirimu..."
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="learningStyle">Gaya Belajar</label>
+              <input id="learningStyle" disabled placeholder="Memuat..." />
+            </div>
+            <button type="submit" id="saveProfileBtn" class="btn-primary">💾 Simpan Perubahan</button>
+          </div>
+        </div>
+      </form>
+
+      <p id="statusMessage" class="status"></p>
+
+      <!-- ===== BAGIAN LENCANA ===== -->
+      <div class="divider"></div>
+      <div class="profile-badges">
+        <h3>🏆 Lencana Saya</h3>
+        <div class="badge-grid" id="badge-grid-container">
+          <p class="muted" style="text-align: center; grid-column: 1 / -1;">Memuat lencana...</p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <h4>Tentang</h4>
+        <p>Aplikasi refleksi belajar dan gaya belajar personal.</p>
+      </div>
+      <div>
+        <h4>Pengembang</h4>
+        <p>
+          Tim: <strong>EduReflect Project</strong><br />
+          Email: <a href="mailto:tiow171205@gmail.com">tiow171205@gmail.com</a>
+        </p>
+      </div>
+      <div>
+        <h4>Ikuti Kami</h4>
+        <p>
+          <a href="https://www.instagram.com/alwitiow_/">Instagram</a> ·  <a href="https://github.com/alwznx">GitHub</a>
+        </p>
+      </div>
+    </div>
+    <p class="copy">© 2025 EduReflect. Dibuat dengan ❤️ untuk pembelajaran.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/profile.js"></script>
+  
+</body>
+</html>

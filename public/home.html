@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduReflect | Home</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-logo">
+      <img src="assets/logo.png" alt="EduReflect" class="logo" />
+      <h1>EduReflect</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="home.html" class="active">Beranda</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="register.html">Register</a></li>
+    </ul>
+    <div class="nav-controls">
+      <button id="theme-toggle" class="btn-icon" title="Ganti tema">🌙</button>
+      
+      <button id="nav-toggle-btn" class="btn-icon nav-toggle-btn" title="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <h2>
+        Selamat Datang di <span>EduReflect</span>
+      </h2>
+      <p>
+        Platform refleksi belajar personal untuk membantu kamu mengenali gaya
+        belajar, menulis refleksi harian, dan memantau progres dengan cara
+        yang menyenangkan.
+      </p>
+      <div class="hero-actions">
+        <a href="register.html" class="btn-primary">Daftar Sekarang</a>
+        <a href="login.html" class="btn-secondary">Masuk</a>
+      </div>
+    </section>
+
+    <section class="cards">
+      <div class="card">
+        <img src="assets/icons/brain.svg" alt="Tes Gaya Belajar" />
+        <h3>Tes Gaya Belajar</h3>
+        <p>
+          Temukan apakah kamu tipe pembelajar visual, auditori, atau
+          kinestetik — dan dapatkan rekomendasi jadwal belajarmu.
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="assets/icons/book-open.svg" alt="Refleksi Harian" />
+        <h3>Refleksi Harian</h3>
+        <p>
+          Catat pengalaman belajarmu setiap hari untuk meningkatkan kesadaran
+          dan fokus.
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="assets/icons/calendar-days.svg" alt="Dashboard & Laporan" />
+        <h3>Dashboard & Laporan</h3>
+        <p>
+          Pantau kemajuanmu, lihat jadwal mingguan, dan unduh hasil
+          refleksi dalam satu klik.
+        </p>
+      </div>
+    </section>
+
+    <section class="reflection-form" id="cta-section" style="margin-top: 4rem;">
+      <h2>Mulai Perjalanan Belajarmu Hari Ini</h2>
+      <p>
+        Daftar gratis untuk mencoba fitur refleksi harian, tes gaya belajar,
+        dan game pembelajaran yang menyenangkan!
+      </p>
+      <a href="register.html" class="btn-primary">Bergabung Sekarang</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <h4>Tentang EduReflect</h4>
+        <p>
+          Platform refleksi belajar yang membantu siswa mengenali diri dan
+          meningkatkan efektivitas belajar.
+        </p>
+      </div>
+      <div>
+        <h4>Pengembang</h4>
+        <p>
+          Tim: <strong>EduReflect Project</strong><br />
+          Email: <a href="mailto:tiow171205@gmail.com">tiow171205@gmail.com</a>
+        </p>
+      </div>
+      <div>
+        <h4>Ikuti Kami</h4>
+        <p>
+          <a href="https://www.instagram.com/alwitiow_/">Instagram</a> ·  <a href="https://github.com/alwznx">GitHub</a>
+        </p>
+      </div>
+    </div>
+    <p class="copy">© 2025 EduReflect. Dibuat dengan ❤️ untuk pendidikan.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

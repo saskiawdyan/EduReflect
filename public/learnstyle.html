@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuis Gaya Belajar | EduReflect</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/quiz.css" />
+  
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+</head>
+<body class="quiz-page">
+  
+  <header class="quiz-header">
+    <div style="display: flex; align-items: center;">
+      <img src="assets/logo.png" class="logo" alt="logo" />
+      <h1>Tes Gaya Belajar - Kerjakan Dengan Jujur Sesuai Diri Kalian</h1>
+    </div>
+    <div id="progress-text" class="progress-text">Memuat...</div>
+  </header>
+
+  <div class="progress-bar-top">
+    <div id="progress-bar-top-fill"></div>
+  </div>
+
+  <main class="quiz-card-container">
+    <section class="quiz-card">
+      <h2 id="question-text">Memuat pertanyaan...</h2>
+
+      <div class="likert-options">
+        <button class="likert-btn" data-value="1">
+          <h4>1</h4>
+          <p>Sangat Tdk Setuju</p>
+        </button>
+        <button class="likert-btn" data-value="2">
+          <h4>2</h4>
+          <p>Tidak Setuju</p>
+        </button>
+        <button class="likert-btn" data-value="3">
+          <h4>3</h4>
+          <p>Netral</p>
+        </button>
+        <button class="likert-btn" data-value="4">
+          <h4>4</h4>
+          <p>Setuju</p>
+        </button>
+        <button class="likert-btn" data-value="5">
+          <h4>5</h4>
+          <p>Sangat Setuju</p>
+        </button>
+      </div>
+
+      <nav class="quiz-navigation">
+        <button id="prev-btn">Kembali</button>
+        <button id="next-btn" disabled>Lanjut</button>
+      </nav>
+
+      <p id="quiz-error" class="status" style="color: crimson;"></p>
+    </section>
+  </main>
+
+  <div class="progress-bar-bottom">
+    <div id="progress-bar-bottom-fill"></div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    const Security = {
+      escapeOutput: (str) => {
+        if (!str) return '';
+        return str.replace(/&/g, '&amp;')
+                  .replace(/</g, '&lt;')
+                  .replace(/>/g, '&gt;')
+                  .replace(/"/g, '&quot;')
+                  .replace(/'/g, '&#039;');
+      }
+    };
+
+    const questionTextEl = document.getElementById('question-text');
+    const progressTextEl = document.getElementById('progress-text');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const errorEl = document.getElementById('quiz-error');
+    const likertButtons = document.querySelectorAll('.likert-btn');
+    const progressTopFill = document.getElementById('progress-bar-top-fill');
+    const progressBottomFill = document.getElementById('progress-bar-bottom-fill');
+
+    let allQuestions = [];
+    let userAnswers = {};
+    let currentQuestionIndex = 0;
+
+    function renderQuestion(index) {
+      if (index < 0 || index >= allQuestions.length) return;
+
+      const q = allQuestions[index];
+      
+      const card = document.querySelector('.quiz-card');
+      card.style.animation = 'none';
+      void card.offsetWidth;
+      card.style.animation = 'slideInUp 0.5s ease';
+
+      questionTextEl.textContent = Security.escapeOutput(q.text);
+      progressTextEl.textContent = `Pertanyaan ${index + 1} dari ${allQuestions.length}`;
+      nextBtn.textContent = (index === allQuestions.length - 1) ? 'Selesai' : 'Lanjut';
+
+      const progressPercent = ((index + 1) / allQuestions.length) * 100;
+      progressTopFill.style.width = `${progressPercent}%`;
+      progressBottomFill.style.width = `${progressPercent}%`;
+
+      prevBtn.disabled = (index === 0);
+
+      const selectedValue = userAnswers[q.id] ? userAnswers[q.id].value : null;
+      
+      likertButtons.forEach(btn => {
+        btn.classList.toggle('selected', parseInt(btn.dataset.value) === selectedValue);
+      });
+
+      nextBtn.disabled = (selectedValue === null);
+    }
+
+    function handleOptionClick(value) {
+      const q = allQuestions[currentQuestionIndex];
+      userAnswers[q.id] = {
+        question_id: q.id,
+        value: value
+      };
+      renderQuestion(currentQuestionIndex);
+    }
+
+    function handleNext() {
+      if (currentQuestionIndex < allQuestions.length - 1) {
+        currentQuestionIndex++;
+        renderQuestion(currentQuestionIndex);
+      } else {
+        handleSubmitQuiz();
+      }
+    }
+
+    function handlePrev() {
+      if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        renderQuestion(currentQuestionIndex);
+      }
+    }
+
+    async function handleSubmitQuiz() {
+      const answersArray = Object.values(userAnswers);
+
+      if (answersArray.length < allQuestions.length) {
+        errorEl.textContent = `Anda baru menjawab ${answersArray.length} dari ${allQuestions.length} pertanyaan.`;
+        return;
+      }
+
+      nextBtn.disabled = true;
+      nextBtn.textContent = 'Memproses...';
+      errorEl.textContent = '';
+
+      try {
+        const result = await apiFetch('/api/quiz/submit', {
+          method: 'POST',
+          body: { answers: answersArray },
+        });
+
+        localStorage.setItem('quizResult', JSON.stringify(result.data));
+        window.location.href = 'learnstyle-result.html';
+
+      } catch (error) {
+        errorEl.textContent = `❌ Gagal submit kuis: ${error.message}`;
+        nextBtn.disabled = false;
+        nextBtn.textContent = 'Selesai';
+      }
+    }
+
+    async function loadQuestions() {
+      try {
+        const result = await apiFetch('/api/quiz/questions');
+        if (!result.data || result.data.length === 0) {
+          throw new Error("Tidak ada data pertanyaan yang diterima.");
+        }
+        allQuestions = result.data;
+        renderQuestion(currentQuestionIndex);
+        
+      } catch (error) {
+        questionTextEl.innerHTML = `<span style="color: crimson;">Gagal memuat pertanyaan: ${error.message}</span>`;
+        progressTextEl.textContent = "Error";
+        if (error.message.includes('Otentikasi')) {
+          setTimeout(() => { window.location.href = 'login.html'; }, 2000);
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadQuestions);
+    prevBtn.addEventListener('click', handlePrev);
+    nextBtn.addEventListener('click', handleNext);
+    likertButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const value = parseInt(btn.dataset.value);
+        handleOptionClick(value);
+      });
+    });
+  </script>
+</body>
+</html>

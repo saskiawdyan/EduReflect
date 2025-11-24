@@ -1,0 +1,137 @@
+/* ========================================= */
+/* ===== CSS SPESIFIK: DASHBOARD.HTML ===== */
+/* ========================================= */
+
+.dashboard {
+  max-width: 900px;
+}
+.dashboard-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+.dashboard h2 {
+  font-size: 2.75rem;
+  margin-top: 1rem;
+}
+body.dark .dashboard h2 {
+  background: linear-gradient(90deg, var(--light-blue), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.dashboard h2 span {
+  color: var(--primary); 
+}
+body.dark .dashboard h2 span {
+  background: linear-gradient(90deg, var(--light-blue), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.dashboard .muted {
+  margin-bottom: 3rem;
+}
+.dashboard-cards .card p {
+  color: var(--primary); 
+  font-size: 2.25rem;
+  font-weight: 700;
+  transition: color 0.3s ease;
+  line-height: 1.2; 
+  margin-top: 0;
+}
+body.dark .dashboard-cards .card p {
+  color: var(--accent); 
+}
+.dashboard-cards .card h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* ===== STYLE BARU UNTUK JADWAL DI DASHBOARD ===== */
+.dashboard-schedule-box {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+.dashboard-schedule-box h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+}
+body.dark .dashboard-schedule-box h2 {
+  color: var(--accent);
+}
+.dashboard-schedule-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .dashboard-schedule-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.schedule-week {
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+.schedule-week h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+body.dark .schedule-week h3 {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.schedule-week ul {
+  list-style: none;
+  padding-left: 0;
+}
+.schedule-week li {
+  margin-bottom: 1.5rem;
+}
+.schedule-week li strong {
+  font-size: 1.1rem;
+  color: var(--text-main);
+  display: block;
+}
+.schedule-week li p {
+  color: var(--text-muted);
+  margin: 0.25rem 0 0.75rem 0;
+  font-size: 0.95rem;
+}
+.gcal-link {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background-color: color-mix(in oklab, var(--primary) 10%, transparent);
+  transition: all 0.2s ease;
+}
+.gcal-link:hover {
+  background-color: var(--primary);
+  color: white;
+}
+body.dark .gcal-link {
+  color: var(--accent);
+  background-color: color-mix(in oklab, var(--accent) 15%, transparent);
+}
+body.dark .gcal-link:hover {
+  background-color: var(--accent);
+  color: var(--accent-text);
+  box-shadow: var(--shadow-glow);
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laporan Refleksi | EduReflect</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/report.css" />
+  
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-logo">
+      <img src="assets/logo.png" alt="EduReflect" class="logo" />
+      <h1>EduReflect</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="reflection.html">Refleksi</a></li>
+      <li><a href="report.html" class="active">Laporan</a></li>
+      <li><a href="analytics.html">Analitik</a></li> 
+      <li><a href="profile.html">Profil</a></li>
+      <li><a href="game.html">Game</a></li>
+      <li><a href="#" id="logoutLink">Logout</a></li>
+    </ul>
+    <div class="nav-controls">
+      <button id="theme-toggle" class="btn-icon" title="Ganti tema">🌙</button>
+      
+      <button id="nav-toggle-btn" class="btn-icon nav-toggle-btn" title="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    
+  </nav>
+
+  <main class="container">
+    <section class="report-section">
+      <div class="report-header">
+        <h2>📘 Laporan Refleksi Belajar</h2>
+        <p class="muted">Ringkasan kemajuan dan semua catatan refleksimu.</p>
+      </div>
+
+      <div class="report-actions no-print">
+        <button id="printReport" class="btn-primary">🖨️ Cetak / Unduh</button>
+      </div>
+      
+      <div class="report-summary-grid">
+        <div class="summary-item">
+          <h4>Nama</h4>
+          <p id="report-name">Memuat...</p>
+        </div>
+        <div class="summary-item">
+          <h4>Email</h4>
+          <p id="report-email">Memuat...</p>
+        </div>
+        <div class="summary-item">
+          <h4>Gaya Belajar</h4>
+          <p id="report-style">Memuat...</p>
+        </div>
+        <div class="summary-item">
+          <h4>Streak Saat Ini</h4>
+          <p id="report-streak">Memuat...</p>
+        </div>
+      </div>
+      
+      <h3 class="report-list-header">Daftar Refleksi</h3>
+
+      <div id="reportList" class="report-list">
+      </div>
+      <p id="emptyMsg" class="empty-msg" style="display: none">
+        Belum ada refleksi yang disimpan.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <h4>Tentang</h4>
+        <p>
+          Laporan ini menampilkan seluruh hasil refleksi harianmu di EduReflect.
+        </p>
+      </div>
+      <div>
+        <h4>Pengembang</h4>
+        <p>
+          Tim: <strong>EduReflect Project</strong><br />Email:
+          <a href="mailto:tiow171205@gmail.com">tiow171205@gmail.com</a>
+        </p>
+      </div>
+      <div>
+        <h4>Ikuti Kami</h4>
+        <p>
+          <a href="https://www.instagram.com/alwitiow_/">Instagram</a> ·  <a href="https://github.com/alwznx">GitHub</a>
+        </p>
+      </div>
+    </div>
+    <p class="copy">© 2025 EduReflect. Dibuat dengan ❤️ untuk pendidikan.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/report.js"></script>
+</body>
+</html>

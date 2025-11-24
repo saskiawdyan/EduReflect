@@ -1,0 +1,102 @@
+.profile-box {
+  max-width: 900px;
+}
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .profile-grid { grid-template-columns: 200px 1fr; }
+}
+.profile-avatar {
+  text-align: center;
+}
+.profile-avatar img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border-color);
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.profile-avatar img:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow);
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+body.dark .profile-avatar img {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow-blue);
+}
+.profile-avatar input[type="file"] {
+  display: none;
+}
+.profile-avatar small {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 2.5rem 0;
+}
+.profile-badges h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+body.dark .profile-badges h3 {
+  color: var(--accent);
+}
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+.badge-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+.badge-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px var(--shadow-color), var(--shadow-glow-blue);
+}
+.badge-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+  /* Animasi glow untuk dark mode */
+  body.dark & {
+    text-shadow: 0 0 15px var(--accent);
+  }
+}
+.badge-info h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+.badge-info p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}

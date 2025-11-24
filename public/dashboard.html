@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | EduReflect</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-logo">
+      <img src="assets/logo.png" alt="EduReflect" class="logo" />
+      <h1>EduReflect</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="dashboard.html" class="active">Dashboard</a></li>
+      <li><a href="reflection.html">Refleksi</a></li>
+      <li><a href="report.html">Laporan</a></li>
+      <li><a href="analytics.html">Analitik</a></li>
+      <li><a href="profile.html">Profil</a></li>
+      <li><a href="game.html">Game</a></li>
+      <li><a href="#" id="logout-btn">Logout</a></li>
+    </ul>
+    <div class="nav-controls">
+      <button id="theme-toggle" class="btn-icon" title="Ganti tema">🌙</button>
+      <button id="nav-toggle-btn" class="btn-icon nav-toggle-btn" title="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="dashboard">
+      <h2>Halo, <span id="userName">User...</span> 👋</h2>
+      <p class="muted">
+        Selamat datang kembali di EduReflect! Berikut ringkasan aktivitasmu
+        minggu ini.
+      </p>
+
+      <div class="dashboard-cards">
+        <div class="card">
+          <img src="assets/icons/book-open.svg" alt="Refleksi" />
+          <h3>Total Refleksi</h3>
+          <p id="totalReflections">0</p>
+        </div>
+        <div class="card">
+          <img src="assets/icons/brain.svg" alt="Gaya Belajar" />
+          <h3>Gaya Belajar</h3>
+          <p id="learningStyle">Memuat...</p>
+        </div>
+        <div class="card">
+          <img src="assets/icons/calendar-days.svg" alt="Streak" />
+          <h3>Streak Harian</h3>
+          <p id="streak-value">0</p>
+        </div>
+        <div class="card">
+          <img src="assets/icons/gamepad.svg" alt="Skor Game" />
+          <h3>High Score Game</h3>
+          <p id="gameScore">0</p>
+        </div>
+      </div>
+
+      <div class="dashboard-schedule-box" id="schedule-box" style="display: none;">
+        <h2>Rekomendasi Rencana Belajar</h2>
+        <div class="dashboard-schedule-grid" id="dashboard-schedule-container">
+          </div>
+      </div>
+      <div class="dashboard-actions">
+        <a href="reflection.html" class="btn-primary"
+          >✍️ Tulis Refleksi</a
+        >
+        <a href="report.html" class="btn-secondary">📄 Lihat Laporan</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <h4>Tentang</h4>
+        <p>
+          EduReflect membantu siswa merefleksikan proses belajar dan memahami
+          gaya belajar mereka.
+        </p>
+      </div>
+      <div>
+        <h4>Pengembang</h4>
+        <p>
+          Tim: <strong>EduReflect Project</strong><br />
+          Email: <a href="mailto:tiow171205@gmail.com">tiow171205@gmail.com</a>
+        </p>
+      </div>
+      <div>
+        <h4>Ikuti Kami</h4>
+        <p>
+          <a href="https://www.instagram.com/alwitiow_/">Instagram</a> ·  <a href="https://github.com/alwznx">GitHub</a>
+        </p>
+      </div>
+    </div>
+    <p class="copy">© 2025 EduReflect. Dibuat dengan ❤️ untuk pendidikan.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
