@@ -1,6 +1,6 @@
 # ✨ EduReflect — Aplikasi Refleksi Belajar & Gaya Belajar VAK
 
-**EduReflect** adalah aplikasi web full-stack untuk membantu pelajar melakukan refleksi harian, mengetahui gaya belajar (Visual, Auditori, Kinestetik), serta melacak progres dan kebiasaan belajar mereka dengan tampilan modern bertema **Blue Neon**.
+**EduReflect** adalah aplikasi web full-stack untuk membantu pelajar melakukan refleksi harian, mengetahui gaya belajar (Visual, Auditori, & Kinestetik), serta melacak progres dan kebiasaan belajar mereka dengan tampilan modern bertema **Blue Neon**.
 
 Aplikasi ini dibangun dengan:
 
